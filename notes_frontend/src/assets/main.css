@@ -1,0 +1,22 @@
+@import './base.css';
+
+#app {
+  inset: 0;
+  position: fixed;
+  display: block;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: var(--primary);
+  transition: 0.2s;
+  padding: 2px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: var(--primary-10);
+  }
+}
