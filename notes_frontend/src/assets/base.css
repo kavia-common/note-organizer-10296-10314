@@ -1,4 +1,4 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* color palette base */
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -23,6 +23,13 @@
 
 /* semantic color variables for this project */
 :root {
+  --primary: #42b983;
+  --secondary: #35495e;
+  --accent: #ffcc00;
+
+  --primary-10: rgba(66, 185, 131, 0.15);
+  --accent-10: rgba(255, 204, 0, 0.15);
+
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);

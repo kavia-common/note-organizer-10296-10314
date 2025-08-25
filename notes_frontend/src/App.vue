@@ -1,85 +1,59 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { TopNav, NotesSidebar } from '@/components/layout'
+import NoteEditor from '@/components/notes/NoteEditor.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="app-root">
+    <TopNav />
+    <div class="app-body">
+      <NotesSidebar class="sidebar" />
+      <main class="main">
+        <NoteEditor />
+      </main>
     </div>
-  </header>
-
-  <RouterView />
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
+.app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  background: var(--color-background);
   color: var(--color-text);
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+/* Body layout: sidebar + main */
+.app-body {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 0;
+  height: calc(100dvh - 56px);
+  border-top: 1px solid var(--color-border);
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+/* Sidebar specifics handled inside the component as well */
+.sidebar {
+  border-right: 1px solid var(--color-border);
+  background: var(--color-background-soft);
 }
 
-nav a:first-of-type {
-  border: 0;
+/* Main content area */
+.main {
+  min-width: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+/* Responsive: collapse sidebar for small screens */
+@media (max-width: 900px) {
+  .app-body {
+    grid-template-columns: 1fr;
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+  .sidebar {
+    display: none;
   }
 }
 </style>

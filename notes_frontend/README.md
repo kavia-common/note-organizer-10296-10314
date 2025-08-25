@@ -1,45 +1,40 @@
-# vue-kavia
+# Notes Frontend (Vue 3 + Vite)
 
-This template should help get you started developing with Vue 3 in Vite.
+A minimal, responsive notes application built with Vue 3, Pinia, and Vite.
 
-## Recommended IDE Setup
+Features:
+- View list of notes (sidebar)
+- Create new notes
+- Edit existing notes (title and content)
+- Delete notes
+- Search notes
+- Local persistence via localStorage
+- Modern, minimalistic light theme with responsive layout
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Tech:
+- Vue 3 + Vite
+- Pinia for state management
+- TypeScript, Composition API
 
-## Type Support for `.vue` Imports in TS
+Design:
+- Colors:
+  - primary: #42b983
+  - secondary: #35495e
+  - accent: #ffcc00
+- Layout: Top navigation, left sidebar, main editor pane
+- Responsive: Sidebar hides on narrow screens; the editor remains accessible.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Getting Started:
+- npm install
+- npm run dev
 
-## Customize configuration
+Build:
+- npm run build
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Lint/Type Check:
+- npm run lint
+- npm run type-check
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Notes:
+- Data is stored in localStorage under key: `notes_app__notes_v1`.
+- PUBLIC_INTERFACE tags precede public functions for discoverability.
